@@ -1,37 +1,34 @@
+"""
+Exercises for Programmers 57 Challenges to Develop Your Coding Skills
+Exercise 10: Self checkout
+"""
+import math
 
+# Prompt user for input, if invalid it repeats
+def get_input():
+    while(True):
+        try: 
+            length = int(input("What is the length of the room in feet?"))
+            width = int(input("What is the width of the room in feet?"))
+            return length, width
+        except(ValueError):
+            print("Invalid numeric")
+        continue
 
-# Tax rate constant
-tax_rate = 0.055
+# Calculate total area and gallons required to paint everything, rounding up
+def calculate(length, width): 
+    total_area = length * width
+    gallons_required = math.ceil(total_area/350)
+    return total_area, gallons_required
 
-# Prompt user for input on item prices and quantity
-def get_input(num_items=3):  
-    items = []
-    for i in range(1, num_items + 1):
-        while True:
-            try:
-                price = float(input(f"Enter the price of item {i}:"))
-                quantity = int(input(f"Enter the quantity of item {i}:"))
-            except ValueError:
-                print("Invalid input. Enter a number for price and an integer for quantity.")
-                continue
-            items.append({"price": price, "quantity":quantity})
-            break
-    return items
-
-# Calculate subtotal, tax, total
-def calculate(items): 
-    sub_total = sum(item["price"] * item["quantity"] for item in items)
-    tax_amt = sub_total * tax_rate
-    total_amt = sub_total + tax_amt
-    return sub_total, tax_amt, total_amt
-
-# Print output  
-def print_output (sub_total, tax_amt, total_amt):
-    print(f"Subtotal: ${sub_total:.2f}\nTax: ${tax_amt:.2f}\nTotal: ${total_amt:.2f}")
+# Print output
+def print_output(total_area, gallons_required):
+    print(f"You will need to purchase {gallons_required} gallons of paint to cover {total_area} square feet.")
 
 # Run function
-def run(): 
-    cart = get_input()
-    sub_total, tax_amt, total_amt = calculate(cart)
-    print_output(sub_total, tax_amt, total_amt)
+def run():
+    length, width = get_input()
+    total_area, gallons_required = calculate(length, width)
+    print_output(total_area, gallons_required)
+
 run()

@@ -10,4 +10,3 @@ This repo is for practice and learning - credit to Brian P. Hogan for the challe
 - Mosher’s Law of Software Engineering
 
 A reminder to not give up and keep learning! 
-- SK
