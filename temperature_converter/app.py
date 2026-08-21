@@ -24,9 +24,9 @@ def get_input():
 # Conditional statement on state, to determine conversion formula
 def convert(unit, temperature):
     converted_temperature = 0
-    if unit.upper() == "C":
+    if unit == "C":
         converted_temperature = (temperature-32) * (5/9)    
-    elif unit.upper() == "F":
+    elif unit == "F":
         converted_temperature = (temperature*1.8) + 32
     else: 
         print("Wrong input!")
@@ -35,9 +35,9 @@ def convert(unit, temperature):
 # Print output function 
 def print_message(unit, converted_temperature):
     print(f"Your unit: {unit}")
-    if unit.upper() == "C":
+    if unit == "C":
         unit = "Celsius"
-    elif unit.upper() == "F":
+    elif unit == "F":
         unit = "Fahrenheit"
     print(f"The temperature in {unit} is {converted_temperature:.2f}")
 
