@@ -16,7 +16,6 @@ def get_input():
 
 # Conditional statement to check if length the same, then sort by letters if they match
 def is_anagram(str1, str2):
-    # Constraint: Check that both strings are the same length
     if len(str1) != len(str2):
         return False
     if sorted(str1.lower()) == sorted(str2.lower()):
